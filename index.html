@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- title -->
+    <title>Home</title>
+
+    <!-- internal css -->
+    <link rel="stylesheet" href="style.css" type="text/css" />
+  </head>
+  <body>
+    <!-- start header -->
+    <div class="nav-bar" id="nav-bar">
+      <div class="nav-title">
+        <a href="/">
+          <img
+            src="https://static.wikia.nocookie.net/gensin-impact/images/e/ec/Icon_Emoji_Hu_Tao_1.png"
+            alt="logo web"
+            id="logo-web"
+            width="70px"
+            height="70px"
+          />
+          <span id="name-web">Hutao Web</span>
+        </a>
+      </div>
+      <div class="nav-item">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">About Me</a></li>
+          <li><button class="btnTheme">Theme</button></li>
+        </ul>
+      </div>
+    </div>
+    <!-- end header -->
+    <!-- start content  -->
+    <div class="content" id="content">
+      <div class="section">
+        <!-- nama karakter -->
+        <span class="name-char" id="name-char">Hutao</span>
+        <!-- gambar karakter  -->
+        <img
+          src="https://static.wikia.nocookie.net/gensin-impact/images/a/a4/Character_Hu_Tao_Thumb.png"
+          alt="gambar karakter"
+          id="profile-pic"
+        />
+        <!-- deskripsi karakter  -->
+        <p class="desc-char">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit
+          amet eum, in eos iste laborum quis corrupti praesentium quos ullam
+          inventore, exercitationem, eveniet optio? Consequuntur illum
+          recusandae explicabo perspiciatis non! Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. Nam cupiditate voluptatibus esse omnis,
+          distinctio error aut asperiores officiis doloremque aliquid!
+          Perferendis tempore numquam soluta. Quam impedit temporibus nihil sint
+          omnis!
+        </p>
+      </div>
+      <div class="section">
+        <!-- trailer karakter  -->
+        <div class="section-row">
+          <div class="video-char">
+            <iframe
+              src="https://www.youtube.com/embed/qrH9vMZBwAk"
+              height="230px"
+              width="370px"
+            ></iframe>
+          </div>
+          <div class="video-char">
+            <iframe
+              src="https://www.youtube.com/embed/dc3eD6C6Gbk"
+              height="230px"
+              width="370px"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end content -->
+    <!-- music -->
+    </div>
+    <!-- start footer  -->
+    <div class="footer" id="footer">
+      <span style="float: left">2022 Copyright</span>
+      <span style="float: right">Created by Jho</span>
+    </div>
+    <!-- end footer  -->
+    <script>
+      const navBar = document.getElementById("nav-bar");
+      const content = document.getElementById("content");
+      const nameChar = document.getElementById("name-char");
+      const footer = document.getElementById("footer");
+      const btn = document.querySelector("button");
+      btn.addEventListener("click", changeColor);
+
+      function changeColor() {
+        const getTheme = localStorage.getItem('theme');
+        if (getTheme =="light") {
+          document.body.style.backgroundColor = "#ffee";
+          navBar.style.backgroundColor = "#0d490f9c";
+          nameChar.style.color = "#000000a7";
+          content.style.color = "#000";
+          footer.style.backgroundColor = "#0d490f9c";
+          localStorage.setItem('theme','dark')
+        } else {
+          document.body.style.backgroundColor = "#474E68";
+          navBar.style.backgroundColor = "#2C3333";
+          content.style.color = "#ffff";
+          nameChar.style.color = "#ffff";
+          footer.style.backgroundColor = "#2C3333";
+          localStorage.setItem('theme','light')
+        }
+      }
+    </script>
+  </body>
+</html>
