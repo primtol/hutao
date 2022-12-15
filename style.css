@@ -71,6 +71,15 @@ a {
   text-decoration: none;
 }
 
+button {
+  height: 40px;
+  width: fit-content;
+  background-color: transparent;
+  border: white solid 1px;
+  color: white;
+  font-size: 18px;
+}
+
 .content {
     margin-top: 30px;
 }
@@ -129,5 +138,17 @@ iframe {
     margin: 0 20px;
 }
 
+@media (min-width: 523px) {
+  #button-nav {
+    display: none;
+  }
+}
 
-
+@media (min-width: 455px) and (max-width: 522px) {
+  .nav-item > ul >li > a, button {
+    display: none;
+  }
+  #button-nav {
+    display: inline-block;
+  }
+}

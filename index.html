@@ -28,9 +28,10 @@
       </div>
       <div class="nav-item">
         <ul>
+          <li><button id="button-nav">Menu</button></li>
           <li><a href="index.html">Home</a></li>
           <li><a href="#">About Me</a></li>
-          <li><button class="btnTheme">Theme</button></li>
+          <li><button  id="btnTheme">Theme</button></li>
         </ul>
       </div>
     </div>
@@ -92,25 +93,48 @@
       const content = document.getElementById("content");
       const nameChar = document.getElementById("name-char");
       const footer = document.getElementById("footer");
-      const btn = document.querySelector("button");
+      const btn = document.getElementById("btnTheme");
       btn.addEventListener("click", changeColor);
 
+
+      function getCookie(name) {
+        // Split cookie string and get all individual name=value pairs in an array
+        var cookieArr = document.cookie.split(";");
+        
+        // Loop through the array elements
+        for(var i = 0; i < cookieArr.length; i++) {
+            var cookiePair = cookieArr[i].split("=");
+            
+            /* Removing whitespace at the beginning of the cookie name
+            and compare it with the given string */
+            if(name == cookiePair[0].trim()) {
+                // Decode the cookie value and return
+                return decodeURIComponent(cookiePair[1]);
+            }
+        }
+        
+        // Return null if not found
+        return null;
+    }
       function changeColor() {
-        const getTheme = localStorage.getItem('theme');
+        // const getTheme = localStorage.getItem('theme');
+        const getTheme = getCookie("theme");
         if (getTheme =="light") {
           document.body.style.backgroundColor = "#ffee";
           navBar.style.backgroundColor = "#0d490f9c";
           nameChar.style.color = "#000000a7";
           content.style.color = "#000";
           footer.style.backgroundColor = "#0d490f9c";
-          localStorage.setItem('theme','dark')
+          // localStorage.setItem('theme','dark')
+          document.cookie = "theme=dark; path=/; max-age=" + 30*24*60*60;
         } else {
           document.body.style.backgroundColor = "#474E68";
           navBar.style.backgroundColor = "#2C3333";
           content.style.color = "#ffff";
           nameChar.style.color = "#ffff";
           footer.style.backgroundColor = "#2C3333";
-          localStorage.setItem('theme','light')
+          // localStorage.setItem('theme','light')
+          document.cookie = "theme=light; path=/; max-age=" + 30*24*60*60;
         }
       }
     </script>
