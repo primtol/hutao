@@ -105,7 +105,6 @@
       }
 
       function changeColor() {
-        console.log("clicked");
         if (getTheme == "light") {
           darkMode();
           localStorage.setItem("theme", "dark");
@@ -113,7 +112,6 @@
           lightMode();
           localStorage.setItem("theme", "light");
         }
-        location.reload();
       }
 
       function loadTheme() {
